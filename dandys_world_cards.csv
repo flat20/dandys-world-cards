@@ -1,0 +1,137 @@
+﻿Name,Rarity,Effect,Ambrosia,Applies,Type,Availability,Requirements
+Head Start,Legendary,"For the first 90 seconds of each floor, Toons extract 50% faster but Skill Check Size is reduced by 25%.","2,500",90s,Toons,Limited,Unlock Card Slot 4
+Sugar Crash,Legendary,"All Twisteds move 25% slower, pause for 25% longer after an attack, and see 15% less far.","2,500",Rest of Match,Twisteds,Limited,Unlock Card Slot 4
+Lone Wolves,Legendary,Twisteds do not chase in formation.,"2,500",Rest of Match,Twisteds,Limited,Unlock Card Slot 4
+Chain Reaction,Legendary,"Every machine that the team finishes makes all Toons extract 6% faster, up to 60%. Resets each floor.","2,500",Rest of Match,Toons,Limited,Unlock Card Slot 4
+Care Package,Legendary,Every Toon's inventory is filled with random Items of Rare tier or higher. Repeats every 5 floors.,"2,500",Every 5 Floors,Toons,Limited,Unlock Card Slot 4
+Bubble Wrap,Rare,All Toons receive 1 temporary Heart.,"1,000",Right Away,Toons,Limited,
+Charm: Common,Rare,Common Twisteds are much more likely to appear.,"1,000",Rest of Match,Wards,Normal,
+Major Ward: Rare,Rare,Rare Twisteds are far less likely to appear.,"1,000",Rest of Match,Wards,Normal,
+Blind Spot,Rare,Twisteds see 15% less far and through a narrower field of vision.,"1,000",Rest of Match,Twisteds,Normal,
+Day Off,Rare,One fewer Twisted appears on every floor.,"1,000",Rest of Match,Twisteds,Normal,
+Don't Panic,Rare,Twisteds gain 15% less speed in Panic Mode.,"1,000",Rest of Match,Twisteds,Normal,
+Earmuffs,Rare,All Twisteds hear 30% less far.,"1,000",Rest of Match,Twisteds,Normal,
+Ichor Highlighter,Rare,Twisteds that walk through Ichor puddles are highlighted for 5 seconds.,"1,000",Rest of Match,Twisteds,Normal,
+Lights Out,Rare,"During Blackouts, Twisteds see 40% less far.","1,000",Rest of Match,Twisteds,Normal,
+Losing Interest,Rare,Twisteds lose interest in you 35% faster.,"1,000",Rest of Match,Twisteds,Normal,
+Restless,Rare,Twisteds patrol 20% faster but chase 15% slower.,"1,000",Rest of Match,Twisteds,Normal,
+Scenic Route,Rare,Twisteds pause 50% longer at every waypoint and patrol 20% slower.,"1,000",Rest of Match,Twisteds,Normal,
+Slow Motion,Rare,All Twisteds move 10% slower.,"1,000",Rest of Match,Twisteds,Normal,
+Cardio,Rare,Raises every Toon's max Stamina by 5 now and on every even floor (up to +80 max Stamina).,"1,000",Even Floors,Utility,Normal,
+Concentrated,Rare,Most timed Item effects are 50% stronger but last half as long.,"1,000",Rest of Match,Utility,Normal,
+Duct Tape,Rare,Prevents the next 3 Ichor Leaks.,"1,000",Right Away,Utility,Normal,
+Extended Play,Rare,Most timed Item effects last 50% longer.,"1,000",Rest of Match,Utility,Normal,
+Fancy Finds,Rare,Common and Uncommon Items are less likely to appear on floors.,"1,000",Rest of Match,Utility,Normal,
+Hot Potato,Rare,Items used within 5 seconds of picking them up are twice as strong.,"1,000",Rest of Match,Utility,Normal,
+Lantern,Rare,"During Blackouts every Toon's light reaches 50% farther, but Twisteds spot Toons more easily.","1,000",Rest of Match,Utility,Normal,
+Last Call,Rare,Adds 15 seconds to the elevator Panic timer.,"1,000",Rest of Match,Utility,Normal,
+Muscle Memory,Rare,Active Ability cooldowns are 10% shorter for all Toons.,"1,000",Rest of Match,Utility,Normal,
+Power Cut,Rare,The next floor is a Blackout. Every Toon receives 300 Tapes for the trouble.,"1,000",This Floor,Utility,Normal,
+Puddle Prize,Rare,"Step in an Ichor puddle to receive an Uncommon or better Item (once per puddle, up to 5 per floor).","1,000",Rest of Match,Utility,Normal,
+Spring a Leak,Rare,An Ichor Leak is triggered on the next floor. Every Toon receives 300 Tapes for the trouble.,"1,000",This Floor,Utility,Normal,
+Treasure Hunter,Rare,Rarer Items are more likely to appear on floors and on Dessa's counter.,"1,000",Rest of Match,Utility,Normal,
+Leaky Machines,Rare,"Each machine the team finishes leaks an Ichor puddle onto the floor, up to 8 on each floor.","1,000",Rest of Match,Misc,Normal,
+Recess,Rare,"Enter a Break Room right now, before the next floor.","1,000",Right Away,Misc,Normal,
+Cut Corners,Rare,"All Toons lose 1 maximum Heart. In exchange, they extract 30% faster.","1,000",Rest of Match,Hearts,Normal,
+Get Well Soon,Rare,"All Toons heal 1 Heart every 30 seconds, up to 3 times.","1,000",90s,Hearts,Normal,
+Nurse's Office,Rare,Heals injured Toons to full Hearts.,"1,000",Right Away,Hearts,Normal,
+Running on Empty,Rare,"All Toons lose 1 maximum Heart. In exchange, max Stamina is increased by 40% and Stamina Regeneration is increased by 40%.","1,000",Rest of Match,Hearts,Normal,
+Safe Landing,Rare,"At the start of each floor, Toons can't be hurt by Twisteds for 8 seconds.","1,000",8s Every Floor,Hearts,Normal,
+Second Chance,Rare,The next hit a Toon takes that would down them instead heals them to 2 Hearts (or 1 if that is their maximum).,"1,000",Right Away,Hearts,Normal,
+Vitamins,Rare,"Heals injured Toons by 1 Heart, now and every 5 floors.","1,000",Every 5 Floors,Hearts,Normal,
+Extra Credit,Rare,Skill Checks are worth 1 more progress.,"1,000",Rest of Match,Toons,Normal,
+Fast Feet,Rare,All Toons move 8% faster.,"1,000",Rest of Match,Toons,Normal,
+Fresh Legs,Rare,Stamina does not deplete while sprinting for the next 2 floors.,"1,000",2 Floors,Toons,Normal,
+Gaining Speed,Rare,Each second you keep sprinting grants a 3% sprint speed boost (up to 21%). Walking or stopping resets this effect.,"1,000",Rest of Match,Toons,Normal,
+Heads Down,Rare,All Toons extract 30% faster but walk 15% slower.,"1,000",Rest of Match,Toons,Normal,
+Overclock,Rare,All Toons extract 20% faster.,"1,000",Rest of Match,Toons,Normal,
+Personal Space,Rare,Toons with no other Toon within 20 studs move 10% faster.,"1,000",Rest of Match,Toons,Normal,
+Rally,Rare,All Toons move 5% faster. Stamina Regeneration increases by 15%.,"1,000",Rest of Match,Toons,Normal,
+Rowdy,Rare,"All Toons sprint 10% faster with 20% more Stamina, but Twisteds see and hear 20% farther.","1,000",Rest of Match,Toons,Normal,
+Second Wind,Rare,Raises every Toon's max Stamina by 25% and Stamina Regeneration by 25%.,"1,000",Rest of Match,Toons,Normal,
+Sharp Focus,Rare,Increases Skill Check Chance by 15.,"1,000",Rest of Match,Toons,Normal,
+Speed Walker,Rare,All Toons walk 10% faster.,"1,000",Rest of Match,Toons,Normal,
+Surgical,Rare,Skill Check Size is increased by 30% for all Toons.,"1,000",Rest of Match,Toons,Normal,
+Track Star,Rare,All Toons sprint 12% faster.,"1,000",Rest of Match,Toons,Normal,
+Wired,Rare,"All Toons walk 12% faster and Stamina Regeneration increases by 30%, but Toons extract 20% slower.","1,000",Rest of Match,Toons,Normal,
+Tune-Up,Common,All Toons extract 10% faster.,500,Rest of Match,Toons,Normal,
+Steady Hands,Common,Skill Check Size is increased by 20% for all Toons.,500,Rest of Match,Toons,Normal,
+Pop Quiz,Common,Increases Skill Check Chance by 5.,500,Rest of Match,Toons,Normal,
+Sneakers,Common,All Toons sprint 5% faster.,500,Rest of Match,Toons,Normal,
+Roll the Dice,Common,"At the start of each floor, roll the dice. There's a 60% chance that all Toons move 12% faster, or a 40% chance all Toons move 5% slower.",500,Rest of Match,Utility,Normal,
+Power Walker,Common,All Toons walk 5% faster.,500,Rest of Match,Toons,Normal,
+Finding Rhythm,Common,"Each 'Great' Skill Check in a row increases your Stamina Regeneration by 10%, up to 3 in a row. Anything less resets the streak.",500,Rest of Match,Toons,Normal,
+Jogger,Common,Raises every Toon's max Stamina by 15%.,500,Rest of Match,Toons,Normal,
+Tip Jar,Common,Every Toon receives 150 Tapes.,500,Right Away,Utility,Normal,
+Hold the Door,Common,Adds 7 seconds to the elevator Panic timer.,500,Rest of Match,Utility,Normal,
+Quick Charge,Common,Active Ability cooldowns are 5% shorter for all Toons.,500,Rest of Match,Utility,Normal,
+Zigzag,Common,Twisteds react 50% slower to sudden changes in direction.,500,Rest of Match,Twisteds,Normal,
+Smell the Roses,Common,Twisteds pause 40% longer at every waypoint.,500,Rest of Match,Twisteds,Normal,
+Strolling,Common,Twisteds patrol 15% slower.,500,Rest of Match,Twisteds,Normal,
+Bored,Common,Twisteds lose interest in you 25% faster.,500,Rest of Match,Twisteds,Normal,
+Muffled,Common,All Twisteds hear 15% less far.,500,Rest of Match,Twisteds,Normal,
+Window Shopping,Common,Common Items are less likely to appear on Dessa's counter.,500,Rest of Match,Utility,Normal,
+Thrifty,Common,Everything in Dessa's shop costs 20% less.,500,Rest of Match,Utility,Normal,
+Staying Power,Common,Most timed Item effects last 20% longer.,500,Rest of Match,Utility,Normal,
+Quality Control,Common,Common Items are less likely to appear on floors.,500,Rest of Match,Utility,Normal,
+Grab Bag,Common,Every Toon with a free inventory slot receives one random Item of Uncommon or higher rarity.,500,Right Away,Utility,Normal,
+Extra Charge,Common,Multi-use Items picked up have 1 extra charge.,500,Rest of Match,Utility,Normal,
+Spillage,Common,"When a Twisted spots you, it leaves an Ichor puddle behind, up to 5 on each floor.",500,Rest of Match,Misc,Normal,
+Patch Up,Common,Heals injured Toons by 1 Heart.,500,Right Away,Hearts,Normal,
+Pick-Me-Up,Common,Heals injured Toons by 1 Heart and refills Stamina for all Toons.,500,Right Away,Hearts,Normal,
+Gold Star,Common,Skill Checks are worth 0.5 more progress.,500,Rest of Match,Toons,Normal,
+Ward: Boxten,Common,Twisted Boxten is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Boxten
+Ward: Brusha,Common,Twisted Brusha is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Brusha
+Ward: Cosmo,Common,Twisted Cosmo is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Cosmo
+Ward: Looey,Common,Twisted Looey is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Looey
+Ward: Poppy,Common,Twisted Poppy is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Poppy
+Ward: Shrimpo,Common,Twisted Shrimpo is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Shrimpo
+Ward: Tisha,Common,Twisted Tisha is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Tisha
+Ward: Yatta,Common,Twisted Yatta is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Yatta
+Ward: Brightney,Common,Twisted Brightney is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Brightney
+Ward: Connie,Common,Twisted Connie is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Connie
+Ward: Finn,Common,Twisted Finn is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Finn
+Ward: Razzle & Dazzle,Common,Twisted Razzle & Dazzle much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Razzle & Dazzle
+Ward: Rodger,Common,Twisted Rodger is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Rodger
+Ward: Teagan,Common,Twisted Teagan is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Teagan
+Ward: Toodles,Common,Twisted Toodles is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Toodles
+Ward: Blot,Common,Twisted Blot is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Blot
+Ward: Flutter,Common,Twisted Flutter is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Flutter
+Ward: Gigi,Common,Twisted Gigi is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Gigi
+Ward: Glisten,Common,Twisted Glisten is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Glisten
+Ward: Goob,Common,Twisted Goob is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Goob
+Ward: Scraps,Common,Twisted Scraps is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Scraps
+Ward: Squirm,Common,Twisted Squirm is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Squirm
+Ward: Waxwell,Common,Twisted Waxwell is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Waxwell
+Ward: Astro,Common,Twisted Astro is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Astro
+Ward: Pebble,Common,Twisted Pebble is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Pebble
+Ward: Shelly,Common,Twisted Shelly is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Shelly
+Ward: Sprout,Common,Twisted Sprout is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Sprout
+Ward: Vee,Common,Twisted Vee is much less likely to appear.,500,Rest of Match,Wards,Normal,75% Research on Twisted Vee
+Minor Ward: Uncommon,Common,Uncommon Twisteds are less likely to appear.,500,Rest of Match,Wards,Normal,
+Minor Ward: Rare,Common,Rare Twisteds are less likely to appear.,500,Rest of Match,Wards,Normal,
+Catch Your Breath,Common,Stamina regeneration increases by 15% for all Toons.,500,Rest of Match,Toons,Limited,
+First Aid,,Heals every Toon by 1 Heart if they are injured.,,,,,
+Medical Attention,,Heals every Toon by 1 Heart if they are injured.,,,,,
+Blind Grab,,Every Toon will receive one random Item if they have an inventory slot open.,,,,,
+Lost and Found,,Every Toon will receive one random Item if they have an inventory slot open.,,,,,
+Spare Change,,Every Toon receives 45 Tapes.,,,,,
+Penny Pincher,,Every Toon receives 45 Tapes.,,,,,
+Frugal,,Applies a 10% Discount to all Dandy's Shop items.,,,,,
+Decency,,Add 5 seconds to the elevator panic timer.,,,,,
+Etiquette,,Add 5 seconds to the elevator panic timer.,,,,,
+Well-Paced,,Increases the max Stamina of all Toons by 10.,,,,,
+Endurance,,Increases the max Stamina of all Toons by 10.,,,,,
+TIME'S UP,,Travel to one of the most dangerous places in Gardenview. Complete this challenging floor to earn +50 stamina for the rest of the run.,,,,,
+Sparkplug,,Toons will glow slightly brighter during Blackouts.,,,,,
+Piping Tape,,"Decreases the chance of an Ichor Leak occurring on future Floors. (30% --> 25% max Ichor Leak chance, +2% --> +1.5% per floor)",,,,,
+Frost Shield,,"Decreases the chance of an Iced Over floor occurring. (30% --> 25% max Iced Over chance, +2% --> +1.5% per floor) (Christmas exclusive)",,,,,
+Air Freshener,,"Decreases the chance of an Spring Fever floor occurring. (30% --> 25% max Spring Fever chance, +2% --> +1.5% per floor) (Easter exclusive)",,,,,
+Party Crashers,,"Decreases the chance of an Haunted Gala floor occurring. (30% --> 25% max Haunted Gala chance, +2% --> +1.5% per floor) (Halloween exclusive)",,,,,
+Electrician,,"Decreases the chance of a Blackout occurring on future Floors. (30% --> 25% max blackout chance, +2% --> +1.5% per floor)",,,,,
+Avaricious,,Slightly increases the chances of rarer items appearing on Floors and in Dandy's Shop.,,,,,
+Covetous,,Slightly increases the chances of rarer items appearing on Floors and in Dandy's Shop.,,,,,
+Suppression,,Reduces the amount of speed Twisteds gain in Panic Mode by 5%.,,,,,
+Tech Savvy,,Decreases the amount of time needed to fill up Machines by 5 seconds.,,,,,
+Rehearsal,,Decreases Toon Active Ability cooldowns by 5 seconds.,,,,,
+Practice,,Decreases Toon Active Ability cooldowns by 5 seconds.,,,,,
