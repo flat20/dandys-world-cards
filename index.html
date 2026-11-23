@@ -1,0 +1,1568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dandy&#39;s World Cards</title>
+<style>
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --text: #1d1c1a;
+  --muted: #6b6862;
+  --border: #e2dfd8;
+  --head: #efede8;
+  --hover: #faf8f3;
+  --accent: #2f6fd6;
+  --common: #1f7a35;   --common-bg: #ddf3e2;
+  --rare: #2459b3;     --rare-bg: #e3ecfa;
+  --legendary: #9a5a00; --legendary-bg: #fbeed6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151514;
+    --surface: #1e1e1c;
+    --text: #ecebe7;
+    --muted: #a09d96;
+    --border: #34332f;
+    --head: #262523;
+    --hover: #242320;
+    --accent: #7aa7f0;
+    --common: #7ddc8f;   --common-bg: #1a3321;
+    --rare: #9cc0ff;     --rare-bg: #1f2c44;
+    --legendary: #f2c46d; --legendary-bg: #3a2c12;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 16px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: end;
+  justify-content: space-between;
+}
+h1 { margin: 0; font-size: 24px; letter-spacing: -0.01em; }
+.count { margin: 4px 0 0; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+input[type="search"] {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 100%;
+}
+input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+#q { max-width: 360px; }
+main { max-width: 1400px; margin: 0 auto; padding: 0 16px 32px; }
+.wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+table { border-collapse: collapse; width: 100%; min-width: 900px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; }
+th { border-bottom: 1px solid var(--border); }
+thead th { background: var(--head); position: sticky; top: 0; z-index: 1; }
+th button {
+  all: unset;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+th button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+th .arrow { color: var(--muted); width: 1em; }
+th[aria-sort="ascending"] .arrow::after { content: "▲"; }
+th[aria-sort="descending"] .arrow::after { content: "▼"; }
+tbody tr:hover { background: var(--hover); }
+td { white-space: nowrap; }
+td.multiline { white-space: normal; min-width: 320px; }
+td:first-child { font-weight: 600; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.rarity {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+.rarity-common { color: var(--common); background: var(--common-bg); }
+.rarity-rare { color: var(--rare); background: var(--rare-bg); }
+.rarity-legendary { color: var(--legendary); background: var(--legendary-bg); }
+#empty { color: var(--muted); padding: 24px; text-align: center; margin: 0; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Dandy&#39;s World Cards</h1>
+    <p class="count"><span id="shown">136</span> of 136 cards</p>
+  </div>
+  <input type="search" id="q" placeholder="Search all columns…" aria-label="Search all columns" autocomplete="off">
+</header>
+<main>
+  <div class="wrap">
+    <table id="cards">
+      <thead>
+        <tr>
+          <th scope="col" aria-sort="none"><button type="button" data-col="0">Name<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="1">Rarity<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="2">Effect<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="3">Ambrosia<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="4">Applies<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="5">Type<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="6">Availability<span class="arrow" aria-hidden="true"></span></button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-col="7">Requirements<span class="arrow" aria-hidden="true"></span></button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Head Start</td>
+          <td><span class="rarity rarity-legendary">Legendary</span></td>
+          <td class="multiline">For the first 90 seconds of each floor, Toons extract 50% faster but Skill Check Size is reduced by 25%.</td>
+          <td>2,500</td>
+          <td>90s</td>
+          <td>Toons</td>
+          <td>Limited</td>
+          <td>Unlock Card Slot 4</td>
+        </tr>
+        <tr>
+          <td>Sugar Crash</td>
+          <td><span class="rarity rarity-legendary">Legendary</span></td>
+          <td class="multiline">All Twisteds move 25% slower, pause for 25% longer after an attack, and see 15% less far.</td>
+          <td>2,500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Limited</td>
+          <td>Unlock Card Slot 4</td>
+        </tr>
+        <tr>
+          <td>Lone Wolves</td>
+          <td><span class="rarity rarity-legendary">Legendary</span></td>
+          <td class="multiline">Twisteds do not chase in formation.</td>
+          <td>2,500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Limited</td>
+          <td>Unlock Card Slot 4</td>
+        </tr>
+        <tr>
+          <td>Chain Reaction</td>
+          <td><span class="rarity rarity-legendary">Legendary</span></td>
+          <td class="multiline">Every machine that the team finishes makes all Toons extract 6% faster, up to 60%. Resets each floor.</td>
+          <td>2,500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Limited</td>
+          <td>Unlock Card Slot 4</td>
+        </tr>
+        <tr>
+          <td>Care Package</td>
+          <td><span class="rarity rarity-legendary">Legendary</span></td>
+          <td class="multiline">Every Toon&#39;s inventory is filled with random Items of Rare tier or higher. Repeats every 5 floors.</td>
+          <td>2,500</td>
+          <td>Every 5 Floors</td>
+          <td>Toons</td>
+          <td>Limited</td>
+          <td>Unlock Card Slot 4</td>
+        </tr>
+        <tr>
+          <td>Bubble Wrap</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons receive 1 temporary Heart.</td>
+          <td>1,000</td>
+          <td>Right Away</td>
+          <td>Toons</td>
+          <td>Limited</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Charm: Common</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Common Twisteds are much more likely to appear.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Major Ward: Rare</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Rare Twisteds are far less likely to appear.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Blind Spot</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Twisteds see 15% less far and through a narrower field of vision.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Day Off</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">One fewer Twisted appears on every floor.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Don&#39;t Panic</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Twisteds gain 15% less speed in Panic Mode.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Earmuffs</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Twisteds hear 30% less far.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Ichor Highlighter</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Twisteds that walk through Ichor puddles are highlighted for 5 seconds.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Lights Out</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">During Blackouts, Twisteds see 40% less far.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Losing Interest</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Twisteds lose interest in you 35% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Restless</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Twisteds patrol 20% faster but chase 15% slower.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Scenic Route</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Twisteds pause 50% longer at every waypoint and patrol 20% slower.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Slow Motion</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Twisteds move 10% slower.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cardio</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Raises every Toon&#39;s max Stamina by 5 now and on every even floor (up to &#43;80 max Stamina).</td>
+          <td>1,000</td>
+          <td>Even Floors</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Concentrated</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Most timed Item effects are 50% stronger but last half as long.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Duct Tape</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Prevents the next 3 Ichor Leaks.</td>
+          <td>1,000</td>
+          <td>Right Away</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Extended Play</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Most timed Item effects last 50% longer.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fancy Finds</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Common and Uncommon Items are less likely to appear on floors.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hot Potato</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Items used within 5 seconds of picking them up are twice as strong.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Lantern</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">During Blackouts every Toon&#39;s light reaches 50% farther, but Twisteds spot Toons more easily.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Last Call</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Adds 15 seconds to the elevator Panic timer.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Muscle Memory</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Active Ability cooldowns are 10% shorter for all Toons.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Power Cut</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">The next floor is a Blackout. Every Toon receives 300 Tapes for the trouble.</td>
+          <td>1,000</td>
+          <td>This Floor</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Puddle Prize</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Step in an Ichor puddle to receive an Uncommon or better Item (once per puddle, up to 5 per floor).</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Spring a Leak</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">An Ichor Leak is triggered on the next floor. Every Toon receives 300 Tapes for the trouble.</td>
+          <td>1,000</td>
+          <td>This Floor</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Treasure Hunter</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Rarer Items are more likely to appear on floors and on Dessa&#39;s counter.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Leaky Machines</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Each machine the team finishes leaks an Ichor puddle onto the floor, up to 8 on each floor.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Misc</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Recess</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Enter a Break Room right now, before the next floor.</td>
+          <td>1,000</td>
+          <td>Right Away</td>
+          <td>Misc</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cut Corners</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons lose 1 maximum Heart. In exchange, they extract 30% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Get Well Soon</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons heal 1 Heart every 30 seconds, up to 3 times.</td>
+          <td>1,000</td>
+          <td>90s</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Nurse&#39;s Office</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Heals injured Toons to full Hearts.</td>
+          <td>1,000</td>
+          <td>Right Away</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Running on Empty</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons lose 1 maximum Heart. In exchange, max Stamina is increased by 40% and Stamina Regeneration is increased by 40%.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Safe Landing</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">At the start of each floor, Toons can&#39;t be hurt by Twisteds for 8 seconds.</td>
+          <td>1,000</td>
+          <td>8s Every Floor</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Second Chance</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">The next hit a Toon takes that would down them instead heals them to 2 Hearts (or 1 if that is their maximum).</td>
+          <td>1,000</td>
+          <td>Right Away</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Vitamins</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Heals injured Toons by 1 Heart, now and every 5 floors.</td>
+          <td>1,000</td>
+          <td>Every 5 Floors</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Extra Credit</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Skill Checks are worth 1 more progress.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fast Feet</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons move 8% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Fresh Legs</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Stamina does not deplete while sprinting for the next 2 floors.</td>
+          <td>1,000</td>
+          <td>2 Floors</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Gaining Speed</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Each second you keep sprinting grants a 3% sprint speed boost (up to 21%). Walking or stopping resets this effect.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Heads Down</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons extract 30% faster but walk 15% slower.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Overclock</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons extract 20% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Personal Space</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Toons with no other Toon within 20 studs move 10% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Rally</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons move 5% faster. Stamina Regeneration increases by 15%.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Rowdy</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons sprint 10% faster with 20% more Stamina, but Twisteds see and hear 20% farther.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Second Wind</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Raises every Toon&#39;s max Stamina by 25% and Stamina Regeneration by 25%.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sharp Focus</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Increases Skill Check Chance by 15.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Speed Walker</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons walk 10% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Surgical</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">Skill Check Size is increased by 30% for all Toons.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Track Star</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons sprint 12% faster.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Wired</td>
+          <td><span class="rarity rarity-rare">Rare</span></td>
+          <td class="multiline">All Toons walk 12% faster and Stamina Regeneration increases by 30%, but Toons extract 20% slower.</td>
+          <td>1,000</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Tune-Up</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">All Toons extract 10% faster.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Steady Hands</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Skill Check Size is increased by 20% for all Toons.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Pop Quiz</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Increases Skill Check Chance by 5.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sneakers</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">All Toons sprint 5% faster.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Roll the Dice</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">At the start of each floor, roll the dice. There&#39;s a 60% chance that all Toons move 12% faster, or a 40% chance all Toons move 5% slower.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Power Walker</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">All Toons walk 5% faster.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Finding Rhythm</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Each &#39;Great&#39; Skill Check in a row increases your Stamina Regeneration by 10%, up to 3 in a row. Anything less resets the streak.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jogger</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Raises every Toon&#39;s max Stamina by 15%.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Tip Jar</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Every Toon receives 150 Tapes.</td>
+          <td>500</td>
+          <td>Right Away</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hold the Door</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Adds 7 seconds to the elevator Panic timer.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Quick Charge</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Active Ability cooldowns are 5% shorter for all Toons.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Zigzag</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisteds react 50% slower to sudden changes in direction.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Smell the Roses</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisteds pause 40% longer at every waypoint.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Strolling</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisteds patrol 15% slower.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Bored</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisteds lose interest in you 25% faster.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Muffled</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">All Twisteds hear 15% less far.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Twisteds</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Window Shopping</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Common Items are less likely to appear on Dessa&#39;s counter.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Thrifty</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Everything in Dessa&#39;s shop costs 20% less.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Staying Power</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Most timed Item effects last 20% longer.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Quality Control</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Common Items are less likely to appear on floors.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Grab Bag</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Every Toon with a free inventory slot receives one random Item of Uncommon or higher rarity.</td>
+          <td>500</td>
+          <td>Right Away</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Extra Charge</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Multi-use Items picked up have 1 extra charge.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Utility</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Spillage</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">When a Twisted spots you, it leaves an Ichor puddle behind, up to 5 on each floor.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Misc</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Patch Up</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Heals injured Toons by 1 Heart.</td>
+          <td>500</td>
+          <td>Right Away</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Pick-Me-Up</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Heals injured Toons by 1 Heart and refills Stamina for all Toons.</td>
+          <td>500</td>
+          <td>Right Away</td>
+          <td>Hearts</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Gold Star</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Skill Checks are worth 0.5 more progress.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Ward: Boxten</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Boxten is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Boxten</td>
+        </tr>
+        <tr>
+          <td>Ward: Brusha</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Brusha is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Brusha</td>
+        </tr>
+        <tr>
+          <td>Ward: Cosmo</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Cosmo is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Cosmo</td>
+        </tr>
+        <tr>
+          <td>Ward: Looey</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Looey is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Looey</td>
+        </tr>
+        <tr>
+          <td>Ward: Poppy</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Poppy is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Poppy</td>
+        </tr>
+        <tr>
+          <td>Ward: Shrimpo</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Shrimpo is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Shrimpo</td>
+        </tr>
+        <tr>
+          <td>Ward: Tisha</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Tisha is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Tisha</td>
+        </tr>
+        <tr>
+          <td>Ward: Yatta</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Yatta is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Yatta</td>
+        </tr>
+        <tr>
+          <td>Ward: Brightney</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Brightney is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Brightney</td>
+        </tr>
+        <tr>
+          <td>Ward: Connie</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Connie is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Connie</td>
+        </tr>
+        <tr>
+          <td>Ward: Finn</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Finn is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Finn</td>
+        </tr>
+        <tr>
+          <td>Ward: Razzle &amp; Dazzle</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Razzle &amp; Dazzle much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Razzle &amp; Dazzle</td>
+        </tr>
+        <tr>
+          <td>Ward: Rodger</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Rodger is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Rodger</td>
+        </tr>
+        <tr>
+          <td>Ward: Teagan</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Teagan is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Teagan</td>
+        </tr>
+        <tr>
+          <td>Ward: Toodles</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Toodles is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Toodles</td>
+        </tr>
+        <tr>
+          <td>Ward: Blot</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Blot is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Blot</td>
+        </tr>
+        <tr>
+          <td>Ward: Flutter</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Flutter is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Flutter</td>
+        </tr>
+        <tr>
+          <td>Ward: Gigi</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Gigi is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Gigi</td>
+        </tr>
+        <tr>
+          <td>Ward: Glisten</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Glisten is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Glisten</td>
+        </tr>
+        <tr>
+          <td>Ward: Goob</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Goob is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Goob</td>
+        </tr>
+        <tr>
+          <td>Ward: Scraps</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Scraps is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Scraps</td>
+        </tr>
+        <tr>
+          <td>Ward: Squirm</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Squirm is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Squirm</td>
+        </tr>
+        <tr>
+          <td>Ward: Waxwell</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Waxwell is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Waxwell</td>
+        </tr>
+        <tr>
+          <td>Ward: Astro</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Astro is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Astro</td>
+        </tr>
+        <tr>
+          <td>Ward: Pebble</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Pebble is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Pebble</td>
+        </tr>
+        <tr>
+          <td>Ward: Shelly</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Shelly is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Shelly</td>
+        </tr>
+        <tr>
+          <td>Ward: Sprout</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Sprout is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Sprout</td>
+        </tr>
+        <tr>
+          <td>Ward: Vee</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Twisted Vee is much less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td>75% Research on Twisted Vee</td>
+        </tr>
+        <tr>
+          <td>Minor Ward: Uncommon</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Uncommon Twisteds are less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Minor Ward: Rare</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Rare Twisteds are less likely to appear.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Wards</td>
+          <td>Normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Catch Your Breath</td>
+          <td><span class="rarity rarity-common">Common</span></td>
+          <td class="multiline">Stamina regeneration increases by 15% for all Toons.</td>
+          <td>500</td>
+          <td>Rest of Match</td>
+          <td>Toons</td>
+          <td>Limited</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>First Aid</td>
+          <td></td>
+          <td class="multiline">Heals every Toon by 1 Heart if they are injured.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Medical Attention</td>
+          <td></td>
+          <td class="multiline">Heals every Toon by 1 Heart if they are injured.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Blind Grab</td>
+          <td></td>
+          <td class="multiline">Every Toon will receive one random Item if they have an inventory slot open.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Lost and Found</td>
+          <td></td>
+          <td class="multiline">Every Toon will receive one random Item if they have an inventory slot open.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Spare Change</td>
+          <td></td>
+          <td class="multiline">Every Toon receives 45 Tapes.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Penny Pincher</td>
+          <td></td>
+          <td class="multiline">Every Toon receives 45 Tapes.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Frugal</td>
+          <td></td>
+          <td class="multiline">Applies a 10% Discount to all Dandy&#39;s Shop items.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Decency</td>
+          <td></td>
+          <td class="multiline">Add 5 seconds to the elevator panic timer.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Etiquette</td>
+          <td></td>
+          <td class="multiline">Add 5 seconds to the elevator panic timer.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Well-Paced</td>
+          <td></td>
+          <td class="multiline">Increases the max Stamina of all Toons by 10.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Endurance</td>
+          <td></td>
+          <td class="multiline">Increases the max Stamina of all Toons by 10.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>TIME&#39;S UP</td>
+          <td></td>
+          <td class="multiline">Travel to one of the most dangerous places in Gardenview. Complete this challenging floor to earn &#43;50 stamina for the rest of the run.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sparkplug</td>
+          <td></td>
+          <td class="multiline">Toons will glow slightly brighter during Blackouts.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Piping Tape</td>
+          <td></td>
+          <td class="multiline">Decreases the chance of an Ichor Leak occurring on future Floors. (30% --&gt; 25% max Ichor Leak chance, &#43;2% --&gt; &#43;1.5% per floor)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Frost Shield</td>
+          <td></td>
+          <td class="multiline">Decreases the chance of an Iced Over floor occurring. (30% --&gt; 25% max Iced Over chance, &#43;2% --&gt; &#43;1.5% per floor) (Christmas exclusive)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Air Freshener</td>
+          <td></td>
+          <td class="multiline">Decreases the chance of an Spring Fever floor occurring. (30% --&gt; 25% max Spring Fever chance, &#43;2% --&gt; &#43;1.5% per floor) (Easter exclusive)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Party Crashers</td>
+          <td></td>
+          <td class="multiline">Decreases the chance of an Haunted Gala floor occurring. (30% --&gt; 25% max Haunted Gala chance, &#43;2% --&gt; &#43;1.5% per floor) (Halloween exclusive)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Electrician</td>
+          <td></td>
+          <td class="multiline">Decreases the chance of a Blackout occurring on future Floors. (30% --&gt; 25% max blackout chance, &#43;2% --&gt; &#43;1.5% per floor)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Avaricious</td>
+          <td></td>
+          <td class="multiline">Slightly increases the chances of rarer items appearing on Floors and in Dandy&#39;s Shop.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Covetous</td>
+          <td></td>
+          <td class="multiline">Slightly increases the chances of rarer items appearing on Floors and in Dandy&#39;s Shop.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Suppression</td>
+          <td></td>
+          <td class="multiline">Reduces the amount of speed Twisteds gain in Panic Mode by 5%.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Tech Savvy</td>
+          <td></td>
+          <td class="multiline">Decreases the amount of time needed to fill up Machines by 5 seconds.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Rehearsal</td>
+          <td></td>
+          <td class="multiline">Decreases Toon Active Ability cooldowns by 5 seconds.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Practice</td>
+          <td></td>
+          <td class="multiline">Decreases Toon Active Ability cooldowns by 5 seconds.</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p id="empty" hidden>No cards match.</p>
+  </div>
+</main>
+<script>
+(() => {
+  const table = document.getElementById("cards");
+  const tbody = table.tBodies[0];
+  const rows = Array.from(tbody.rows);
+  const headers = Array.from(table.tHead.rows[0].cells);
+  const search = document.getElementById("q");
+  const shown = document.getElementById("shown");
+  const empty = document.getElementById("empty");
+
+  
+  const text = rows.map(r => Array.from(r.cells, c => c.textContent.trim()));
+  const haystack = text.map(cells => cells.join(" ").toLowerCase());
+
+  
+  const numeric = headers.map((_, col) =>
+    text.every(cells => cells[col] === "" || !isNaN(Number(cells[col].replace(/,/g, "")))));
+  numeric.forEach((isNum, col) => { if (isNum) rows.forEach(r => r.cells[col].classList.add("num")); });
+
+  
+  const rarityRank = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5, mythic: 6 };
+  const rarityCol = headers.findIndex(h => h.textContent.trim() === "Rarity");
+
+  function applyFilters() {
+    const words = search.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let count = 0;
+    rows.forEach((row, i) => {
+      const ok = words.every(w => haystack[i].includes(w));
+      row.hidden = !ok;
+      if (ok) count++;
+    });
+    shown.textContent = count;
+    empty.hidden = count > 0;
+  }
+
+  function sortKey(i, col) {
+    const v = text[i][col];
+    if (col === rarityCol) return rarityRank[v.toLowerCase()] ?? 0;
+    if (numeric[col]) return Number(v.replace(/,/g, ""));
+    return v;
+  }
+
+  let sortCol = -1, sortDir = 1;
+  function sortBy(col) {
+    sortDir = col === sortCol ? -sortDir : 1;
+    sortCol = col;
+    headers.forEach((h, c) => h.setAttribute("aria-sort",
+      c !== col ? "none" : sortDir > 0 ? "ascending" : "descending"));
+
+    const order = rows.map((_, i) => i);
+    order.sort((a, b) => {
+      const ea = text[a][col] === "", eb = text[b][col] === "";
+      if (ea !== eb) return ea ? 1 : -1; 
+      const ka = sortKey(a, col), kb = sortKey(b, col);
+      const cmp = typeof ka === "number"
+        ? ka - kb
+        : ka.localeCompare(kb, undefined, { numeric: true, sensitivity: "base" });
+      return cmp * sortDir || a - b; 
+    });
+    tbody.append(...order.map(i => rows[i]));
+  }
+
+  table.tHead.addEventListener("click", e => {
+    const btn = e.target.closest("button[data-col]");
+    if (btn) sortBy(Number(btn.dataset.col));
+  });
+  search.addEventListener("input", applyFilters);
+})();
+</script>
+</body>
+</html>
