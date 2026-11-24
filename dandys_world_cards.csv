@@ -1,6 +1,6 @@
 ﻿Name,Rarity,Effect,Ambrosia,Applies,Category,Availability,Requirements
 Head Start,Legendary,"For the first 90 seconds of each floor, Toons extract 50% faster but Skill Check Size is reduced by 25%.",2500,"90s, Every Floor",Toons,Limited,Unlock Card Slot 4
-Sugar Crash,Legendary,"All Twisteds move 25% slower, pause for 25% longer after an attack, and see 15% less far.",2500,Rest of Match,Twisteds,Limited,Unlock Card Slot 4
+Sugar Crash,Legendary,"All Twisteds move 15% slower, pause for 25% longer after an attack, and see 15% less far.",2500,Rest of Match,Twisteds,Limited,Unlock Card Slot 4
 Lone Wolves,Legendary,Twisteds do not chase in formation.,2500,Rest of Match,Twisteds,Limited,Unlock Card Slot 4
 Chain Reaction,Legendary,"Every machine that the team finishes makes all Toons extract 6% faster, up to 60%. Resets each floor.",2500,Rest of Match,Toons,Limited,Unlock Card Slot 4
 Care Package,Legendary,Every Toon's inventory is filled with random Items of Rare tier or higher. Repeats every 5 floors.,2500,Every 5 Floors,Toons,Limited,Unlock Card Slot 4
@@ -14,9 +14,9 @@ Earmuffs,Rare,All Twisteds hear 30% less far.,1000,Rest of Match,Twisteds,Normal
 Ichor Highlighter,Rare,Twisteds that walk through Ichor puddles are highlighted for 5 seconds.,1000,Rest of Match,Twisteds,Normal,
 Lights Out,Rare,"During Blackouts, Twisteds see 40% less far.",1000,Rest of Match,Twisteds,Normal,
 Losing Interest,Rare,Twisteds lose interest in you 35% faster.,1000,Rest of Match,Twisteds,Normal,
-Restless,Rare,Twisteds patrol 20% faster but chase 15% slower.,1000,Rest of Match,Twisteds,Normal,
+Restless,Rare,Twisteds patrol 9% faster but chase 9% slower.,1000,Rest of Match,Twisteds,Normal,
 Scenic Route,Rare,Twisteds pause 50% longer at every waypoint and patrol 20% slower.,1000,Rest of Match,Twisteds,Normal,
-Slow Motion,Rare,All Twisteds move 10% slower.,1000,Rest of Match,Twisteds,Normal,
+Slow Motion,Rare,All Twisteds move 6% slower.,1000,Rest of Match,Twisteds,Normal,
 Cardio,Rare,Raises every Toon's max Stamina by 5 now and on every even floor (up to +80 max Stamina).,1000,Even Floors,Utility,Normal,
 Concentrated,Rare,Most timed Item effects are 50% stronger but last half as long.,1000,Rest of Match,Utility,Normal,
 Duct Tape,Rare,Prevents the next 3 Ichor Leaks.,1000,Right Away,Utility,Normal,
