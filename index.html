@@ -1572,6 +1572,11 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     if (btn) sortBy(Number(btn.dataset.col));
   });
   search.addEventListener("input", applyFilters);
+
+  
+  
+  const availabilityCol = headers.findIndex(h => h.textContent.trim() === "Availability");
+  if (availabilityCol >= 0) sortBy(availabilityCol);
 })();
 </script>
 </body>
