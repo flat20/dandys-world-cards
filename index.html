@@ -6,12 +6,12 @@
 <title>Dandy&#39;s World Cards</title>
 <style>
 :root {
-  --bg: #f6f5f2;
+  --bg: #fffff5;
   --surface: #ffffff;
   --text: #1d1c1a;
   --muted: #6b6862;
   --border: #e2dfd8;
-  --head: #efede8;
+  --head: #f2f2f2;
   --hover: #faf8f3;
   --accent: #2f6fd6;
   --common: #1f7a35;   --common-bg: #ddf3e2;
@@ -40,7 +40,14 @@ body {
   color: var(--text);
   font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
+ 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--bg);
+}
+.bar {
   max-width: 1400px;
   margin: 0 auto;
   padding: 24px 16px 12px;
@@ -64,16 +71,27 @@ input[type="search"] {
 input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
 #q { max-width: 360px; }
 main { max-width: 1400px; margin: 0 auto; padding: 0 16px 32px; }
+ 
 .wrap {
-  overflow-x: auto;
+  width: fit-content;
+  min-width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
 }
 table { border-collapse: collapse; width: 100%; min-width: 900px; }
 th, td { text-align: left; vertical-align: top; padding: 8px 10px; }
-th { border-bottom: 1px solid var(--border); }
-thead th { background: var(--head); position: sticky; top: 0; z-index: 1; }
+ 
+thead th {
+  background: var(--head);
+  box-shadow: inset 0 -1px var(--border);
+  position: sticky;
+  top: var(--header-h, 0px);
+  z-index: 1;
+}
+ 
+thead th:first-child { border-top-left-radius: 9px; }
+thead th:last-child { border-top-right-radius: 9px; }
 th button {
   all: unset;
   cursor: pointer;
@@ -108,11 +126,13 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
 </head>
 <body>
 <header>
-  <div>
-    <h1>Dandy&#39;s World Cards</h1>
-    <p class="count"><span id="shown">137</span> of 137 cards</p>
+  <div class="bar">
+    <div>
+      <h1>Dandy&#39;s World Cards</h1>
+      <p class="count"><span id="shown">137</span> of 137 cards</p>
+    </div>
+    <input type="search" id="q" placeholder="Search all columns…" aria-label="Search all columns" autocomplete="off">
   </div>
-  <input type="search" id="q" placeholder="Search all columns…" aria-label="Search all columns" autocomplete="off">
 </header>
 <main>
   <div class="wrap">
@@ -1572,6 +1592,12 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
     if (btn) sortBy(Number(btn.dataset.col));
   });
   search.addEventListener("input", applyFilters);
+
+  
+  
+  const pageHeader = document.querySelector("body > header");
+  new ResizeObserver(() => document.documentElement.style.setProperty(
+    "--header-h", pageHeader.offsetHeight + "px")).observe(pageHeader);
 
   
   
