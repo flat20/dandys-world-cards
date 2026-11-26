@@ -2,7 +2,7 @@
 Head Start,Legendary,"For the first 90 seconds of each floor, Toons extract 50% faster but Skill Check Size is reduced by 25%.",2500,"90s, Every Floor",Toons,Limited,Unlock Card Slot 4
 Sugar Crash,Legendary,"All Twisteds move 15% slower, pause for 25% longer after an attack, and see 15% less far.",2500,Rest of Match,Twisteds,Limited,Unlock Card Slot 4
 Lone Wolves,Legendary,Twisteds do not chase in formation.,2500,Rest of Match,Twisteds,Limited,Unlock Card Slot 4
-Chain Reaction,Legendary,"Every machine that the team finishes makes all Toons extract 6% faster, up to 60%. Resets each floor.",2500,Rest of Match,Toons,Limited,Unlock Card Slot 4
+Chain Reaction,Legendary,"Every machine the team finishes makes all Toons extract 6% faster, up to 60%. Resets each floor.",2500,Rest of Match,Toons,Limited,Unlock Card Slot 4
 Care Package,Legendary,Every Toon's inventory is filled with random Items of Rare tier or higher. Repeats every 5 floors.,2500,Every 5 Floors,Toons,Limited,Unlock Card Slot 4
 Bubble Wrap,Rare,All Toons receive 1 temporary Heart.,1000,Right Away,Toons,Limited,
 Charm: Common,Rare,Common Twisteds are much more likely to appear.,1000,Rest of Match,Wards,Normal,
@@ -140,3 +140,4 @@ Rain Boots,Legendary,ichor puddles do not cause any negative effects to Toons.,2
 Autopilot,Legendary,All Toons extract 32% faster.,2500,Rest of Match,Toons,Limited,Unlock Card Slot 4
 Ichor Floodlight,Legendary,Twisteds that walk through Ichor puddles are highlighted for 15 seconds.,2500,Rest of Match,Twisteds,Limited,Unlock Card Slot 4
 Light on Your Feet,Legendary,"All Toons lose 1 maximum Heart. In exchange, they move 20% faster and are 40% stealthier.",2500,Rest of Match,Toons,Limited,Unlock Card Slot 4
+Glass Cannon,Legendary,"One hit downs any Toon this floor, but Toons move 18% faster and extract 18% faster. Survive, and the buff remains active for the rest of the run.",2500,This Floor,Toons,Limited,Unlock Card Slot 4
